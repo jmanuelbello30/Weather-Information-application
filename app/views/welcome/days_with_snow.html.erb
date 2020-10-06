@@ -1,4 +1,4 @@
-<h1>Weather#Information<h1>
+<h1 class="h1-style font-style-title">Weather Information<span class="material-icons icon-title">poll</span><h1>
 
 <!-- Menú de navegación -->
 <!-- Diseño de HTML con Bootstrap -->
@@ -7,7 +7,7 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse font-style-menu" id="navbarNav">
         <ul class="navbar-nav">
         <!-- Cada href del tag HTML hace referencia a una ruta creada 
             en el archivo config/routes.rb, cada una de estas rutas llevan a un método 
@@ -39,9 +39,9 @@ envían parámetros que se usan en condicionales (if) para saber cual cálculo r
 <!-- Esta vista corresponde al toal anual de días con nieve, por lo tanto se envía el título,
  la variable operación indica el tipo de cálculo que se hará, y el data_type determina el tipo de dato
 que se buscará para hacer el cálculo, en este caso es "snowDays", refiriendose a los días con nieve-->
-<%= render partial: 'datas_by_countries', locals: { operation: "days", data_type: "snowDays", title: "Promedio anual de días con nieve" } %>
+<%= render partial: 'datas_by_countries', locals: { operation: "days", data_type: "snowDays", title: "Promedio anual de días con nieve", icon: "ac_unit" } %>
 
-<footer class="py-5 bg-dark flex-shrink-0">
+<footer class="py-5 bg-dark flex-shrink-0 font-style-information">
     <p class="m-0 text-center text-white">Made by José Manuel B. October 2020</p>
     <i class="fas fa-laptop-code color-icon"></i>
 </footer>

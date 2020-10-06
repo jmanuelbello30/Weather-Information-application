@@ -21,10 +21,10 @@ Gems installed in this project:
 ### Steps to install this project for first time: 
 
 ```sh
-1. $ git clone 
+1. $ git clone https://github.com/jmanuelbello30/Weather-Information-application.git
 2. Instalar las dependencias del proyecto.
-3. $ cd 
-4. $ rails server
+3. $ cd Weather-Information-application
+4. $ rails server 
 5. La aplicación corre en localhost, verificar el puerto de tu local ejemplo: http://localhost:3000/
 ```
 

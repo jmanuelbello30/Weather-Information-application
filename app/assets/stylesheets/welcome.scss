@@ -3,3 +3,36 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "bootstrap";
 
+.h1-style{
+    text-align: center;
+    padding: 20px 0px 20px 0px;   
+}
+
+.font-style-title{
+    font-family: 'Anton', sans-serif;
+}
+
+.font-style-information{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.font-style-menu{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.font-size-icons{
+    font-size: 35px;
+}
+
+.navbar{
+    padding: 0px 0px 0px 310px;
+}
+
+.icon-title{
+    font-size: 35px;
+}
+
+.py-5{
+    font-size: 30px;
+}
+

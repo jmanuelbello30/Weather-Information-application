@@ -1,6 +1,6 @@
 
 <!-- Título de la categoría -->
-<p class="card-text text-center m-0" style="background-color: silver;"><%=title%></p>
+<p class="card-text text-center m-0 font-style-menu" style="background-color: silver;"><%=title%></p>
 
 <!-- Se realiza una iteracción por cada país, los países se encuentran en la variable
 "countries", esta variable viene desde el controlador (welcome) y contiene el GET del endpoint
@@ -9,8 +9,9 @@ del api de clima -->
     <div class="card text-center">
         <div class="card-body">
         <!-- Se accede al nombre del país y la ciudad según la respuesta del endpoint -->
-            <h2 class="card-title">Country: <%=country['country']%></h2>
-            <h2 class="card-title">City: <%=country['city']%></h2>
+            <h2 class="card-title font-style-information">Country: <%=country['country']%></h2>
+            <h2 class="card-title font-style-information">City: <%=country['city']%></h2>
+            <span class="material-icons font-size-icons"><%=icon%></span>
             <p class="card-text">
                 <small class="text-muted">
 
