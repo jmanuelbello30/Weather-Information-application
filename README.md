@@ -22,9 +22,9 @@ Gems installed in this project:
 
 ```sh
 1. $ git clone https://github.com/jmanuelbello30/Weather-Information-application.git
-2. Instalar las dependencias del proyecto.
+2. Install the project dependencies.
 3. $ cd Weather-Information-application
 4. $ rails server 
-5. La aplicación corre en localhost, verificar el puerto de tu local ejemplo: http://localhost:3000/
+5. The application runs on localhost, check the port of your local, example: http://localhost:3000/
 ```
 
