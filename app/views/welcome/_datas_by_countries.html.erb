@@ -1,0 +1,35 @@
+
+<!-- Título de la categoría -->
+<p class="card-text text-center m-0" style="background-color: silver;"><%=title%></p>
+
+<!-- Se realiza una iteracción por cada país, los países se encuentran en la variable
+"countries", esta variable viene desde el controlador (welcome) y contiene el GET del endpoint
+del api de clima -->
+<%- @countries.each do |country| %>
+    <div class="card text-center">
+        <div class="card-body">
+        <!-- Se accede al nombre del país y la ciudad según la respuesta del endpoint -->
+            <h2 class="card-title">Country: <%=country['country']%></h2>
+            <h2 class="card-title">City: <%=country['city']%></h2>
+            <p class="card-text">
+                <small class="text-muted">
+
+    <!-- Según lo explicado en el render partial sobre esta vista, se tiene la variable operation -->
+    <!-- Según el requerimiento se observo que existen solo 2 tipos de operaciones, uno el promedio
+    y la otra,un total (una sumatoria). Por lo tanto para no repetir código se agregaron 2 partial
+    más para definir el tipo de cálculo -->
+    <!-- se hace traspaso del data_type (determina el tipo de dato
+    que se buscará para hacer el cálculo) -->
+    <!-- country es la variable que se está interando -->
+    
+                <% if operation == "promedio" %>
+                  <%= render partial: 'calculate_avg', locals: { data_type: data_type, country: country } %>
+                <% else %>
+                  <%= render partial: 'total_days_in_year', locals: { data_type: data_type, country: country } %>
+                <% end %>
+
+                </small>
+            </p>
+        </div>
+    </div>
+<% end %>

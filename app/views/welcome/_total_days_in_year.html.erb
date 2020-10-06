@@ -1,0 +1,27 @@
+
+<!-- se inicia una variable (suma), para realizar el cálculo -->
+<%- sum_days = 0 %>
+
+<!-- se realiza un condicional para indicar si el tipo de dato es correcto, ejecute la condición -->
+<!-- para este tipo de cálculo (promedio) se determinó por el requerimiento 
+que solo existen 3 casos "dryDays" para días secos, "snowDays" para días de nieve, y rainfall para
+días de lluvía. En este caso, la variable data_type, puede ser alguna de estas 3, y dependiendo de ella
+accederá a la evaluación correspondiente de la respuesta del endpoint-->
+
+<% if data_type == "dryDays" %>
+<!-- se recorre cada mes de monthlyAvg y se suma el atributo "dryDays" -->
+<!-- se utiliza to_f(función de rails) que pasa una variable a tipo float -->
+  <%- country['monthlyAvg'].each{ |month| sum_days = sum_days + month['dryDays'].to_f  } %>
+<% elsif data_type == "snowDays" %>
+<!-- se recorre cada mes de monthlyAvg y se suma el atributo "snowDays" -->
+<!-- se utiliza to_f(función de rails) que pasa una variable a tipo float -->
+  <%- country['monthlyAvg'].each{ |month| sum_days = sum_days + month['snowDays'].to_f  } %>
+<% elsif data_type == "rainfall" %>
+<!-- se recorre cada mes de monthlyAvg y se suma el atributo "rainfall" -->
+<!-- se utiliza to_f(función de rails) que pasa una variable a tipo float -->
+    <%- country['monthlyAvg'].each{ |month| sum_days = sum_days + month['rainfall'].to_f  } %>
+<% end %>
+
+<!-- impresión del resultado, se usó la función round(función de rails), para aproximar 
+el resultado a un dígito en el rendodeo-->
+<%= sum_days.round(1) %>

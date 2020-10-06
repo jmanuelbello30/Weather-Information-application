@@ -1,0 +1,47 @@
+<h1>Weather#Information<h1>
+
+<!-- Menú de navegación -->
+<!-- Diseño de HTML con Bootstrap -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <!-- Cada href del tag HTML hace referencia a una ruta creada 
+            en el archivo config/routes.rb, cada una de estas rutas llevan a un método 
+            en el controlador llamado welcome (Nombre del controlador por default de Rails) -->
+            <li class="nav-item">
+                <a class="nav-link" href="/">Temperatura máxima |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/temp_low">Temperatura mínima |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/dry_days">Días secos |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rainy_days">Días lluviosos |</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/snow_days">Días con nieve</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Render partial se utiliza para crear una plantilla y reutilizarla según 
+    los parámetros que se quieran usar  -->
+<!-- En este caso, este render partial tiene una tajeta donde se va a rellenar la información
+por país, como en todos los cálculos se utiliza el mismo html, y lo que cambia es el cálculo, se
+envían parámetros que se usan en condicionales (if) para saber cual cálculo realizar -->
+<!-- Esta vista corresponde al toal anual de días secos, por lo tanto se envía el título,
+ la variable operación indica el tipo de cálculo que se hará, y el data_type determina el tipo de dato
+que se buscará para hacer el cálculo, en este caso es "dryDays", refiriendose a la los días secos -->
+<%= render partial: 'datas_by_countries', locals: { operation: "days", data_type: "dryDays", title: "Promedio anual de días secos" } %>
+
+<footer class="py-5 bg-dark flex-shrink-0">
+    <p class="m-0 text-center text-white">Made by José Manuel B. October 2020</p>
+    <i class="fas fa-laptop-code color-icon"></i>
+</footer>

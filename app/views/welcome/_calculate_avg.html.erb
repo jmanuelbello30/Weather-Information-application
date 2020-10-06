@@ -1,0 +1,29 @@
+
+<!-- se inicia una variable (suma), para realizar el cálculo -->
+<%- sum_temp = 0 %>
+
+<!-- se realiza un condicional para indicar si el tipo de dato es correcto, ejecute la condición -->
+<!-- para este tipo de cálculo (promedio) se determinó por el requerimiento 
+que solo existen 2 casos "high" para temperatuas máximas, y "low" para temperatuas mínimas.
+Por lo que en este caso, la variable data_type, puede ser alguna de estas 2, y dependiendo de ella
+accederá a la evaluación correspondiente de la respuesta del endpoint-->
+
+<% if data_type == "high" %>
+<!-- se recorre cada mes de monthlyAvg y se suma el atributo "high" -->
+<!-- se utiliza to_f(función de rails) que pasa una variable a tipo float -->
+  <%- country['monthlyAvg'].each{ |month| sum_temp = sum_temp + month['high'].to_f } %>
+<% else %>
+<!-- se recorre cada mes de monthlyAvg y se suma el atributo "low" -->
+  <%- country['monthlyAvg'].each{ |month| sum_temp = sum_temp + month['low'].to_f } %>
+<% end %>
+
+<!-- se utiliza count(función de rails) que cuenta la cantidad dentro de un array, esto para
+calcular luego el promedio -->
+<%- count_month = country['monthlyAvg'].count %>
+
+<!-- operación de cálculo de promedio con las variables que se mencionaron anteriomente-->
+<%- tempyear_avg = sum_temp / count_month %>
+
+<!-- impresión del resultado, se usó la función round(función de rails), para aproximar 
+el resultado a un dígito en el rendodeo-->
+<%= tempyear_avg.round(1) %>
